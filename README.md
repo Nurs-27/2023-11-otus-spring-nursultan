@@ -51,7 +51,7 @@ public class AnyTestRunner {
 
 ### Inverted Control Flow with Testing Frameworks
 When a testing framework comes into play, it takes over the management of the test lifecycle. The testing class is still authored by us, but we now provide metadata to the framework in the form of annotations to indicate the framework what to run and in what order. It is no longer us who trigger the test methods; instead, the testing framework detects the test class, reads the metadata, and manages the test lifecycle.
-```
+```java
 import org.junit.jupiter.api.*;
 
 public class AnyTest {
