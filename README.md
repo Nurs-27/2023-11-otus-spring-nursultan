@@ -83,3 +83,13 @@ In short, the `BeanFactory` provides the configuration framework and basic funct
 ## 3) What is a Bean?
 
 In Spring, the objects that form the backbone of your application and are managed by the Spring IoC container are called **beans**. A bean is an object that is instantiated, assembled, and managed by a Spring IoC container. Otherwise, a bean is simply one of many objects in your application. Beans, and the dependencies among them, are reflected in the configuration metadata used by a container.
+
+## 4) Порядок создания Бина
+![Снимок экрана 2023-12-01 в 19 20 28](https://github.com/Nurs-27/2023-11-otus-spring-nursultan/assets/15341062/b4e32615-5f73-447e-9d9d-955352beb751)
+Чтение метаданных: Spring сначала читает метаданные, которые определяют бины. Метаданные могут быть предоставлены в виде XML-конфигурации, аннотаций в коде или через Java-конфигурацию.
+
+Чтение всех необходимых классов по метаданным: Контейнер анализирует метаданные и загружает соответствующие классы, которые используются для создания бинов.
+
+Создание всех бинов: Контейнер инстанцирует бины, используя информацию, полученную из метаданных и загруженных классов.
+
+Задание зависимостей: Зависимости между бинами вводятся с использованием внедрения зависимостей. Это может быть сделано через конструкторы, сеттеры или фабричные методы.
