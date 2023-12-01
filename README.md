@@ -18,6 +18,66 @@ The `org.springframework.beans` and `org.springframework.context` packages are t
 - Event publication
 - Application-layer specific contexts such as the `WebApplicationContext` for use in web applications.
 
+In the Spring Framework, **Inversion of Control (IoC)** is a core principle, whereas **Dependency Injection (DI)** is its practical implementation. 
+Let's consider the scenario of writing and executing tests.
+
+### Classic Control Flow in Testing
+
+Initially, we might write tests and trigger their execution manually. This approach follows a classic control flow, where we have complete control over the test lifecycle and its execution order.
+
+```java
+public class AnyTest {
+    public static void globalSetUp() { ... }
+    public void setUp() { ... }
+    public void anyTest1() { ... }
+    public void anyTest2() { ... }
+    public void tearDown() { ... }
+    public static void globalTearDown() { ... }
+}
+
+public class AnyTestRunner {
+    public static void main(String[] args) {
+        AnyTest test = new AnyTest();
+        // Manual test execution
+        test.globalSetUp();
+        test.setUp();
+        test.anyTest1();
+        test.tearDown();
+        test.setUp();
+        test.anyTest2();
+        test.tearDown();
+        test.globalTearDown();
+    }
+}
+```
+
+### Inverted Control Flow with Testing Frameworks
+When a testing framework comes into play, it takes over the management of the test lifecycle. The testing class is still authored by us, but we now provide metadata to the framework in the form of annotations to indicate the framework what to run and in what order. It is no longer us who trigger the test methods; instead, the testing framework detects the test class, reads the metadata, and manages the test lifecycle.
+```
+import org.junit.jupiter.api.*;
+
+public class AnyTest {
+    @BeforeAll
+    public static void globalSetUp() { ... }
+
+    @BeforeEach
+    public void setUp() { ... }
+
+    @Test
+    public void anyTest1() { ... }
+
+    @Test
+    public void anyTest2() { ... }
+
+    @AfterEach
+    public void tearDown() { ... }
+
+    @AfterAll
+    public static void globalTearDown() { ... }
+}
+```
+By utilizing a framework that manages the lifecycle of tests, we essentially invert the control flow. This aligns with the IoC principle, where the framework, rather than the user, takes charge of the execution process.
+
 ## 2) BeanFactory vs ApplicationContext
 
 In short, the `BeanFactory` provides the configuration framework and basic functionality, while the `ApplicationContext` adds more enterprise-specific functionality. The `ApplicationContext` is a complete superset of the `BeanFactory` and is used exclusively in this chapter in descriptions of Spring’s IoC container. For more information on using the `BeanFactory` instead of the `ApplicationContext`, see the section covering the BeanFactory API.
