@@ -5,7 +5,7 @@
 - [2. BeanFactory vs ApplicationContext](#2-beanfactory-vs-applicationcontext)
 - [3. What is a Bean?](#3-what-is-a-bean)
 
-## 1) What is IoC Container Principle?
+## 1) What is IoC Principle in Spring ?
 
 **Inversion of Control (IoC)**, also known as **dependency injection (DI)**, is a process whereby objects define their dependencies (i.e., the other objects they work with) only through constructor arguments, arguments to a factory method, or properties set on the object instance after it is constructed or returned from a factory method. The container then injects those dependencies when it creates the bean. This process is fundamentally the inverse (hence the name, Inversion of Control) of the bean itself controlling the instantiation or location of its dependencies by using direct construction of classes or a mechanism such as the Service Locator pattern.
 
