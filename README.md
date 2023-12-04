@@ -93,3 +93,7 @@ In Spring, the objects that form the backbone of your application and are manage
 Создание всех бинов: Контейнер инстанцирует бины, используя информацию, полученную из метаданных и загруженных классов.
 
 Задание зависимостей: Зависимости между бинами вводятся с использованием внедрения зависимостей. Это может быть сделано через конструкторы, сеттеры или фабричные методы.
+
+## 5) Расскажите больше про Application Context
+The `org.springframework.context.ApplicationContext` interface represents the Spring IoC container and is responsible for instantiating, configuring, and assembling the beans. The container gets its instructions on what objects to instantiate, configure, and assemble by reading configuration metadata. The configuration metadata is represented in XML, Java annotations, or Java code. It lets you express the objects that compose your application and the rich interdependencies between those objects.
+Several implementations of the ApplicationContext interface are supplied with Spring. In stand-alone applications, it is common to create an instance of ClassPathXmlApplicationContext or FileSystemXmlApplicationContext. While XML has been the traditional format for defining configuration metadata, you can instruct the container to use Java annotations or code as the metadata format by providing a small amount of XML configuration to declaratively enable support for these additional metadata formats.
