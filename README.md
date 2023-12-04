@@ -17,7 +17,7 @@ The `org.springframework.beans` and `org.springframework.context` packages are t
 - Application-layer specific contexts such as the `WebApplicationContext` for use in web applications.
 
 In the Spring Framework, **Inversion of Control (IoC)** is a core principle, whereas **Dependency Injection (DI)** is its practical implementation. 
-Let's consider the scenario of writing and executing tests.
+Let's consider the scenario of writing and executing tests to better understand IoC Principle.
 
 ### Classic Control Flow in Testing
 
